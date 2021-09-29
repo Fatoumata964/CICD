@@ -46,7 +46,7 @@ pipeline{
                       nexusUrl: '135.125.1.217:8081', 
                       nexusVersion: 'nexus2',
                       protocol: 'http',
-                      repository: 'test/',
+                      repository: 'test',
                       version: '1.0-SNPAPSHOT'  
                 }
             }
