@@ -39,7 +39,7 @@ pipeline{
             steps{
                 
                   nexusArtifactUploader artifacts: [
-                      [artifactId: 'TestCI', classifier: '', file: 'target/1.0.SNAPSHOT.jar', type: 'jar']
+                      [artifactId: 'TestCI', classifier: '', file: '/target/TestCI-1.0-SNAPSHOT.jar', type: 'jar']
                   ], 
                       credentialsId: 'ef8c3ee5-e691-47b5-a9f9-44f6f3db2a19', 
                       groupId: 'org.example',
