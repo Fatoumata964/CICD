@@ -34,7 +34,24 @@ pipeline{
                     sh 'mvn clean package'
                 }
             }
+        
+        stage('nexus '){
+            steps{
+                
+                  nexusArtifactUploader artifacts: [
+                      [artifactId: 'TestCI', classifier: '', file: 'targer/1.0.SNAPSHOT.jar', type: 'jar']
+                  ], 
+                      credentialsId: 'ef8c3ee5-e691-47b5-a9f9-44f6f3db2a19', 
+                      groupId: 'org.example',
+                      nexusUrl: '35.125.1.217:8081', 
+                      nexusVersion: 'nexus2',
+                      protocol: 'http',
+                      repository: 'http://135.125.1.217:8081/repository/test/',
+                      version: '1.0-SNPAPSHOT'  
+                }
+            }
      }
     //https://appfleet.com/blog/publishing-artifacts-to-nexus-using-jenkins-pipelines/
+    //https://www.youtube.com/watch?v=p_Wo3aqUJto
 }
  
