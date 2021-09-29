@@ -29,5 +29,6 @@ pipeline{
                 }
             }
      }
+    //https://appfleet.com/blog/publishing-artifacts-to-nexus-using-jenkins-pipelines/
 }
  
