@@ -21,6 +21,13 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <distributionManagement>
+		<repository>
+		    <id>nexus</id>
+		    <url>http://135.125.1.217:8081/repository/test/</url>
+		</repository>
+  	</distributionManagement>
+         
          <build>
     <plugins>
         <plugin>
