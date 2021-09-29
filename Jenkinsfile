@@ -5,6 +5,13 @@ pipeline{
     }
     
     stages{ 
+        
+        stage('Mvn  test'){
+            steps{
+                
+                    sh 'mvn clean install test'
+                }
+            }
             stage('Sonar Analysis'){
                 steps{
                     withSonarQubeEnv('sonar6') {
@@ -21,8 +28,7 @@ pipeline{
                     }
                 }
            }
-            
-        stage('Mvn  Test and Build'){
+        stage('Mvn  Build'){
             steps{
                 
                     sh 'mvn clean package'
