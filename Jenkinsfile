@@ -44,7 +44,7 @@ pipeline{
                       credentialsId: 'ef8c3ee5-e691-47b5-a9f9-44f6f3db2a19', 
                       groupId: 'org.example',
                       nexusUrl: '135.125.1.217:8081', 
-                      nexusVersion: 'nexus2',
+                      nexusVersion: 'nexus3',
                       protocol: 'http',
                       repository: 'test',
                       version: '1.0-SNPAPSHOT'  
