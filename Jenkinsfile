@@ -41,9 +41,9 @@ pipeline{
                   nexusArtifactUploader artifacts: [
                       [artifactId: 'TestCI', classifier: '', file: '/var/lib/jenkins/workspace/PP/target/TestCI-1.0-SNAPSHOT.jar', type: 'jar']
                   ], 
-                      credentialsId: 'ef8c3ee5-e691-47b5-a9f9-44f6f3db2a19', 
+                      credentialsId: 'cc3fad3d-c9c0-4b63-9c4e-803411b39494', 
                       groupId: 'org.example',
-                      nexusUrl: '135.125.1.217:8081', 
+                      nexusUrl: 'mosef.westeurope.cloudapp.azure.com:8082', 
                       nexusVersion: 'nexus3',
                       protocol: 'http',
                       repository: 'test',
