@@ -1,10 +1,18 @@
 ---
 - hosts: webservers 
-  become: True
-  tasks:
-    - name: Install packages
-        apt: name=apache2 update_cache=yes state=latest
-    - name: Deploy static website
-      copy:
-        src: index.html
-        dest: /var/www/html/
+  become: true
+- tasks:
+    - name: Install latest version of Apache
+      apt: name=apache2 update_cache=yes state=latest
+
+    - name: Create document root for your domain
+      file:
+        path: "/var/www/{{ http_host }}"
+        state: directory
+        owner: "{{ app_user }}"
+        mode: '0755'
+
+    - name: Copy your index page
+      template:
+        src: "index.html"
+        dest: "/var/www/{{ http_host }}/index.html"
