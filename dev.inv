@@ -1,2 +1,2 @@
 [webservers]
-135.125.1.217=ubuntu
+135.125.1.217 ansible_user=ubuntu
