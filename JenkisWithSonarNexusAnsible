@@ -50,5 +50,15 @@ pipeline{
                       version: '2.0-SNPAPSHOT'  
                 }
             }
+            stage('Deploiment Continue avec Ansible '){
+            steps{
+                
+                    ansiblePlaybook credentialsId: '0278a6ab-4e4c-43f8-8626-c5c7f837eb0d',
+                    disableHostKeyChecking: true,
+                    installation: 'ansible1',
+                    inventory: 'dev.inv', 
+                    playbook: 'fullCD.yaml'
+                }
+            }
      }
 }
