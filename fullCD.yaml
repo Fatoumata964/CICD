@@ -1,17 +1,9 @@
 ---
 - hosts: webservers 
-  sudo: yes
   become: True
   tasks:
     - name: Install packages
-      apt:
-        name: "httpd"
-        state: "present"
-    - name: Start Apache server
-      service:
-        name: httpd
-        state: started
-        enabled: True
+        apt: name=apache2 update_cache=yes state=latest
     - name: Deploy static website
       copy:
         src: index.html
