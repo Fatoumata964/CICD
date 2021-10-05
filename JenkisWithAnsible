@@ -20,7 +20,7 @@ pipeline{
                     disableHostKeyChecking: true,
                     installation: 'ansible1',
                     inventory: 'dev.inv', 
-                    playbook: 'fullCD.yaml'
+                    playbook: 'SimpleDeploy.yaml'
                 }
             }
       }
