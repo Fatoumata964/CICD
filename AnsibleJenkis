@@ -9,7 +9,7 @@ pipeline{
         stage('ansible copy '){
             steps{
                 
-                    ansiblePlaybook credentialsId: '6e5668a1-2c5f-4c3d-832e-aa84e3100f08',
+                    ansiblePlaybook credentialsId: '3b733180-1a2a-4e68-8dd0-97194c9780d0',
                     disableHostKeyChecking: true,
                     installation: 'ansible1',
                     inventory: 'dev.inv', 
