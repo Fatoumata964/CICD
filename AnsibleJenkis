@@ -6,10 +6,14 @@ pipeline{
     
     stages{ 
         
-        stage('Mvn  test'){
+        stage('ansible copy '){
             steps{
                 
-                    sh 'mvn clean install test'
+                    ansiblePlaybook credentialsId: '6e5668a1-2c5f-4c3d-832e-aa84e3100f08',
+                    disableHostKeyChecking: true,
+                    installation: 'ansible1',
+                    inventory: 'dev.inv', 
+                    playbook: 'deploy.yaml'
                 }
             }
       }
