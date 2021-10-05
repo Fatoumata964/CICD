@@ -6,13 +6,13 @@ pipeline{
     
     stages{ 
         
-        stage('Mvn  test'){
+        stage('Test Unitaires avec Maven'){
             steps{
                 
                     sh 'mvn clean install test'
                 }
             }
-            stage('Sonar Analysis'){
+            stage('Analyse du code avec SonarQube'){
                 steps{
                     withSonarQubeEnv('sonar6') {
                         sh 'mvn sonar:sonar'
@@ -28,7 +28,7 @@ pipeline{
                     }
                 }
            }
-        stage('Mvn  Build'){
+        stage('Packaging avec Maven'){
             steps{
                 
                     sh 'mvn clean package'
