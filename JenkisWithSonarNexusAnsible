@@ -35,7 +35,7 @@ pipeline{
                 }
             }
         
-        stage('Livraison Continue avec Ansible '){
+        stage('Livraison Continue avec Nexus'){
             steps{
                 
                   nexusArtifactUploader artifacts: [
