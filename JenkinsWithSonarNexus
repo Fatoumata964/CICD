@@ -47,7 +47,7 @@ pipeline{
                       nexusVersion: 'nexus3',
                       protocol: 'http',
                       repository: 'sorbonne',
-                      version: '2.0-SNPAPSHOT'  
+                      version: '3.0-SNPAPSHOT'  
                 }
             }
      }
