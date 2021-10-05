@@ -1,2 +1,2 @@
 webservers]
-mosef.westeurope.cloudapp.azure.com: ansible_user=root
+mosef.westeurope.cloudapp.azure.com ansible_user=root
