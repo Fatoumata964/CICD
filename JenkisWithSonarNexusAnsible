@@ -14,7 +14,7 @@ pipeline{
             }
             stage('Analyse du code avec SonarQube'){
                 steps{
-                    withSonarQubeEnv('sonar6') {
+                    withSonarQubeEnv('today') {
                         sh 'mvn sonar:sonar'
                     }
                     sleep(20)
