@@ -14,7 +14,7 @@ pipeline{
             }
             stage('Sonar Analysis'){
                 steps{
-                    withSonarQubeEnv('sorbonne') {
+                    withSonarQubeEnv('today') {
                         sh 'mvn sonar:sonar'
                     }
                     sleep(20)
