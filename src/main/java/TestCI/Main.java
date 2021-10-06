@@ -4,8 +4,7 @@ public class Main {
         {
         Person person = new Person(args[0] ,Integer.parseInt(args[1]));
         System.out.println(person.getAge());
-         System.out.println(person.getAge());
-    
+ 
         }
 }
 
