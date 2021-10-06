@@ -39,7 +39,7 @@ pipeline{
             steps{
                 
                   nexusArtifactUploader artifacts: [
-                      [artifactId: 'TestCI', classifier: '', file: '/var/lib/jenkins/workspace/alpha3/target/TestCI-1.0-SNAPSHOT.jar', type: 'jar']
+                      [artifactId: 'TestCI', classifier: '', file: '/var/lib/jenkins/workspace/thies2/target/TestCI-1.0-SNAPSHOT.jar', type: 'jar']
                   ], 
                       credentialsId: 'cc3fad3d-c9c0-4b63-9c4e-803411b39494', 
                       groupId: 'org.example',
@@ -57,7 +57,7 @@ pipeline{
                     disableHostKeyChecking: true,
                     installation: 'thies', 
                     inventory: 'dev.inv', 
-                    playbook: 'DeployWithInstall.yaml'
+                    playbook: 'SimpleDeploy.yaml'
                 }
             }
      }
