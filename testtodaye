@@ -1,0 +1,54 @@
+pipeline{
+    agent any
+    options {
+      timeout(300)
+    }
+    
+    stages{ 
+        
+        stage('Mvn  test'){
+            steps{
+                
+                    sh 'mvn clean install test'
+                }
+            }
+            stage('Sonar Analysis'){
+                steps{
+                    withSonarQubeEnv('sorbonne') {
+                        sh 'mvn sonar:sonar'
+                    }
+                    sleep(20)
+                    timeout(time: 1, unit: 'HOURS') {
+                        script{
+                          def qg = waitForQualityGate()
+                           if (qg.status != 'OK') {
+                              error "Pipeline aborted due to quality gate failure: ${qg.status}" 
+                           } 
+                        }
+                    }
+                }
+           }
+        stage('Mvn  Build'){
+            steps{
+                
+                    sh 'mvn clean package'
+                }
+            }
+        
+        stage('nexus '){
+            steps{
+                
+                 nexusArtifactUploader artifacts: [
+                 [artifactId: 'TestCI', classifier: '', file: '/var/lib/jenkins/workspace/alpha3/target/TestCI-1.0-SNAPSHOT.jar', type: 'jar']],
+                 credentialsId: '1fdb4ca4-f888-46e8-9c93-fd6be0ae4bac',
+                 groupId: 'org.example',
+                 nexusUrl: 'mosef.westeurope.cloudapp.azure.com:8082', 
+                 nexusVersion: 'nexus3', 
+                 protocol: 'http',
+                 repository: 'today', 
+                 version: '1.0-SNPAPSHOT'
+                 
+                }
+            }
+     }
+}
