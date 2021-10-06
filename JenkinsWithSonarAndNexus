@@ -35,17 +35,19 @@ pipeline{
                 }
             }
             
-            stage('Livraison continue avec  Nexus'){
+            stage('nexus '){
             steps{
-                nexusArtifactUploader artifacts: [
-                [artifactId: 'TestCI', classifier: '', file: '/var/lib/jenkins/workspace/thies/target/TestCI-1.0-SNAPSHOT.jar', type: 'jar']], 
-                credentialsId: '042474ac-9489-435f-9e62-47b12a919ebb',
-                groupId: 'org.example',
-                nexusUrl: 'mosef.westeurope.cloudapp.azure.com:8082',
-                nexusVersion: 'nexus3', 
-                protocol: 'http', 
-                repository: 'thies', 
-                version: '2.0-SNAPSHOT'
+                
+                  nexusArtifactUploader artifacts: [
+                      [artifactId: 'TestCI', classifier: '', file: '/var/lib/jenkins/workspace/thies/target/TestCI-1.0-SNAPSHOT.jar', type: 'jar']
+                  ], 
+                      credentialsId: 'cc3fad3d-c9c0-4b63-9c4e-803411b39494', 
+                      groupId: 'org.example',
+                      nexusUrl: 'mosef.westeurope.cloudapp.azure.com:8082', 
+                      nexusVersion: 'nexus3',
+                      protocol: 'http',
+                      repository: 'thies',
+                      version: '3.0-SNPAPSHOT'  
                 }
             }
        }
