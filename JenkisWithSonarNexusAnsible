@@ -53,11 +53,11 @@ pipeline{
             stage('Deploiment Continue avec Ansible '){
             steps{
                 
-                    ansiblePlaybook credentialsId: '0278a6ab-4e4c-43f8-8626-c5c7f837eb0d',
+                    ansiblePlaybook credentialsId: 'a00f4708-f0ae-432d-81df-2008b122fc7a',
                     disableHostKeyChecking: true,
-                    installation: 'ansible1',
+                    installation: 'thies', 
                     inventory: 'dev.inv', 
-                    playbook: 'SimpleDeploy.yaml'
+                    playbook: 'DeployWithInstall.yaml'
                 }
             }
      }
