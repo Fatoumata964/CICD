@@ -5,22 +5,15 @@ pipeline{
     }
     
     stages{ 
-    
-    stage('Mvn  Build'){
-            steps{
-                
-                    sh 'mvn clean package'
-                }
-            }
         
         stage('ansible copy '){
             steps{
                 
-                    ansiblePlaybook credentialsId: '0278a6ab-4e4c-43f8-8626-c5c7f837eb0d',
-                    disableHostKeyChecking: true,
-                    installation: 'ansible1',
-                    inventory: 'dev.inv', 
-                    playbook: 'SimpleDeploy.yaml'
+                   ansiblePlaybook credentialsId: '5106c4f1-b49a-4629-ad66-75369c2ff2af',
+                   disableHostKeyChecking: true,
+                   installation: 'dakar', 
+                   inventory: 'dev.inv', 
+                   playbook: 'DeployWithInstall.yaml'
                 }
             }
       }
