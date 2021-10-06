@@ -15,7 +15,3 @@
       copy:
         src: index.html
         dest: /var/www/html/
-    - name: Deploy jar
-      copy:
-        src: /var/lib/jenkins/workspace/sorbonne/target/TestCI-1.0-SNAPSHOT.jar
-        dest: /tmp/
