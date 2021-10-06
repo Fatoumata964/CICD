@@ -39,7 +39,7 @@ pipeline{
             steps{
                 
                   nexusArtifactUploader artifacts: [
-                      [artifactId: 'TestCI', classifier: '', file: '/var/lib/jenkins/workspace/thies2/target/TestCI-1.0-SNAPSHOT.jar', type: 'jar']
+                      [artifactId: 'TestCI', classifier: '', file: '/var/lib/jenkins/workspace/kolda/target/TestCI-1.0-SNAPSHOT.jar', type: 'jar']
                   ], 
                       credentialsId: 'cc3fad3d-c9c0-4b63-9c4e-803411b39494', 
                       groupId: 'org.example',
@@ -53,11 +53,11 @@ pipeline{
             stage('Deploiment Continue avec Ansible '){
             steps{
                 
-                    ansiblePlaybook credentialsId: 'a00f4708-f0ae-432d-81df-2008b122fc7a',
-                    disableHostKeyChecking: true,
-                    installation: 'thies', 
-                    inventory: 'dev.inv', 
-                    playbook: 'SimpleDeploy.yaml'
+                    ansiblePlaybook credentialsId: '03ef5c6a-cea7-481a-a8b6-632b4ceb863f', 
+                   disableHostKeyChecking: true,
+                   installation: 'kolda',
+                   inventory: 'dev.inv', 
+                   playbook: 'SimpleDeploy.yaml'
                 }
             }
      }
