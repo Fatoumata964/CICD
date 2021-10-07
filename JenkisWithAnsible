@@ -8,11 +8,9 @@ pipeline{
         
         stage('ansible copy '){
             steps{
-                
-                   ansiblePlaybook credentialsId: '03ef5c6a-cea7-481a-a8b6-632b4ceb863f', 
-                   disableHostKeyChecking: true,
-                   installation: 'kolda',
-                   inventory: 'dev.inv', 
+                   ansiblePlaybook credentialsId: 'c3cd65ca-1b8b-4ce1-9e4c-c3300fdd9479',
+                   installation: 'diourbelAnsible',
+                   inventory: 'dev.inv',
                    playbook: 'DeployWithInstall.yaml'
                 }
             }
