@@ -1,0 +1,22 @@
+pipeline{
+    agent any
+    options {
+      timeout(300)
+    }
+    
+    stages{ 
+        
+        stage('Mvn  test'){
+            steps{
+                
+                    sh 'mvn clean install test'
+                }
+            }
+        stage('Mvn  Build'){
+            steps{
+                
+                    sh 'mvn clean package'
+                }
+            }
+     }
+}
