@@ -40,7 +40,8 @@ pipeline{
                   ansiblePlaybook credentialsId: '1839aa08-1dab-45bb-8718-8cf30059a8f1',
                   installation: 'myansible',
                   inventory: 'dev.inv', 
-                  playbook: 'SimpleDeploy.yaml' 
+                  playbook: 'SimpleDeploy.yaml',
+                  disableHostKeyChecking: true
                 }
             }
      }
