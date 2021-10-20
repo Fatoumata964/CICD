@@ -34,20 +34,21 @@ pipeline{
                     sh 'mvn clean package'
                 }
             }
-        stage('Nexus'){
+        stage('Livraison Continue avec Nexus'){
             steps{
-                nexusArtifactUploader artifacts: [
-                [artifactId: 'TestCI', classifier: '',file: '/var/lib/jenkins/workspace/test1/target/TestCI-1.0-SNAPSHOT.jar',
-                type: 'jar']],
-                groupId: 'org.example',
-                credentialsId: '2f37f4ff-8d11-4808-b6b5-f54437971004',
-                nexusUrl: 'mosef2.westeurope.cloudapp.azure.com:8082',
-                nexusVersion: 'nexus3', 
-                protocol: 'http',
-                repository: 'test', 
-                version: '1.0-SNAPSHOT'
+                
+                  nexusArtifactUploader artifacts: [
+                      [artifactId: 'TestCI', classifier: '', file: '/var/lib/jenkins/workspace/test1/target/TestCI-1.0-SNAPSHOT.jar', type: 'jar']
+                  ], 
+                      credentialsId: '2f37f4ff-8d11-4808-b6b5-f54437971004', 
+                      groupId: 'org.example',
+                      nexusUrl: 'mosef2.westeurope.cloudapp.azure.com:8082', 
+                      nexusVersion: 'nexus3',
+                      protocol: 'http',
+                      repository: 'dakar',
+                      version: '3.0-SNPAPSHOT'  
+                }
             }
-        }
      }
   
 }
