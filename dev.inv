@@ -1,2 +1,2 @@
 [webservers]
- 52.233.128.182 ansible_user=azureuser
+mosef2.westeurope.cloudapp.azure.com ansible_user=azureuser
