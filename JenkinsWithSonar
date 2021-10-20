@@ -24,7 +24,7 @@ pipeline{
                   nexusUrl: 'mosef3.westeurope.cloudapp.azure.com:8182',
                   nexusVersion: 'nexus3',
                   protocol: 'http', 
-                  repository: 'dakar',
+                  repository: 'thiesrepo',
                   version: '1.0-SNAPSHOT'
                 }
             }
