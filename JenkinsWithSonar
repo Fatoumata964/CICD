@@ -34,8 +34,18 @@ pipeline{
                     sh 'mvn clean package'
                 }
             }
-        
-      
+        stage('Nexus'){
+            steps{
+                nexusArtifactUploader artifacts: [
+                [artifactId: 'TestCI', classifier: '', 
+                file: '/var/lib/jenkins/workspace/test1/target/TestCI-1.0-SNAPSHOT.jar',
+                type: 'jar']], credentialsId: '4bed65be-0c4c-4b03-a317-6b42ea1a7447',
+                groupId: 'org.example', nexusUrl: 'mosef2.westeurope.cloudapp.azure.com:8082',
+                nexusVersion: 'nexus3', 
+                protocol: 'http', repository: 'tes', 
+                version: '1.0-SNAPSHOT'
+            }
+        }
      }
   
 }
