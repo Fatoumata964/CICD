@@ -14,7 +14,7 @@ pipeline{
             }
             stage('Sonar Analysis'){
                 steps{
-                    withSonarQubeEnv('diattara') {
+                    withSonarQubeEnv('sonar') {
                         sh 'mvn sonar:sonar'
                     }
                     sleep(20)
