@@ -14,7 +14,7 @@ pipeline{
             }
             stage('Sonar Analysis'){
                 steps{
-                    withSonarQubeEnv('sonar') {
+                    withSonarQubeEnv('diattara') {
                         sh 'mvn sonar:sonar'
                     }
                     sleep(20)
@@ -37,11 +37,15 @@ pipeline{
         stage('Livraison Continue avec Nexus'){
             steps{
                 
-                  ansiblePlaybook credentialsId: '1839aa08-1dab-45bb-8718-8cf30059a8f1',
-                  installation: 'myansible',
-                  inventory: 'dev.inv', 
-                  playbook: 'SimpleDeploy.yaml',
-                  disableHostKeyChecking: true
+                  nexusArtifactUploader artifacts: [
+                  [artifactId: 'TestCI', classifier: '', file: '/var/lib/jenkins/workspace/Test1/target/TestCI-1.0-SNAPSHOT.jar',
+                  type: 'jar']],
+                  credentialsId: '20443ab7-0244-45dd-9005-2be83187c6ef', 
+                  groupId: 'org.example',
+                  nexusUrl: 'mosef3.westeurope.cloudapp.azure.com:8182',
+                  nexusVersion: 'nexus3',
+                  protocol: 'http', repository: 'dakar',
+                  version: '1.0-SNAPSHOT'
                 }
             }
      }
