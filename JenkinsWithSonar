@@ -46,7 +46,7 @@ pipeline{
                       nexusVersion: 'nexus3',
                       protocol: 'http',
                       repository: 'dakar',
-                      version: '3.0-SNPAPSHOT'  
+                      version: '1.0-SNPAPSHOT'  
                 }
             }
      }
