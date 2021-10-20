@@ -23,7 +23,8 @@ pipeline{
                   groupId: 'org.example',
                   nexusUrl: 'mosef3.westeurope.cloudapp.azure.com:8182',
                   nexusVersion: 'nexus3',
-                  protocol: 'http', repository: 'dakar',
+                  protocol: 'http', 
+                  repository: 'dakar',
                   version: '1.0-SNAPSHOT'
                 }
             }
