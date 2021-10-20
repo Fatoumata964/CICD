@@ -6,28 +6,7 @@ pipeline{
     
     stages{ 
         
-        stage('Mvn  test'){
-            steps{
-                
-                    sh 'mvn clean install test'
-                }
-            }
-            stage('Sonar Analysis'){
-                steps{
-                    withSonarQubeEnv('diattara') {
-                        sh 'mvn sonar:sonar'
-                    }
-                    sleep(20)
-                    timeout(time: 1, unit: 'HOURS') {
-                        script{
-                          def qg = waitForQualityGate()
-                           if (qg.status != 'OK') {
-                              error "Pipeline aborted due to quality gate failure: ${qg.status}" 
-                           } 
-                        }
-                    }
-                }
-           }
+        
         stage('Mvn  Build'){
             steps{
                 
@@ -40,7 +19,7 @@ pipeline{
                   nexusArtifactUploader artifacts: [
                   [artifactId: 'TestCI', classifier: '', file: '/var/lib/jenkins/workspace/Test1/target/TestCI-1.0-SNAPSHOT.jar',
                   type: 'jar']],
-                  credentialsId: '20443ab7-0244-45dd-9005-2be83187c6ef', 
+                  credentialsId: 'd2798ef9-5ff9-4803-95b7-57a7160b6122', 
                   groupId: 'org.example',
                   nexusUrl: 'mosef3.westeurope.cloudapp.azure.com:8182',
                   nexusVersion: 'nexus3',
