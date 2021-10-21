@@ -54,7 +54,8 @@ pipeline{
             steps{
                 
                    ansiblePlaybook credentialsId: '851da8cd-7e36-45c0-b56d-c114b3d8830a',
-                   installation: 'diourbelAnsible',
+                   installation: 'myansible',
+                   disableHostKeyChecking: true,
                    inventory: 'dev.inv',
                    playbook: 'SimpleDeploy.yaml'
                 }
