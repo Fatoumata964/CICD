@@ -12,7 +12,7 @@ pipeline{
                     sh 'mvn clean install test'
                 }
             }
-            /*
+            
             stage('Analyse du code avec SonarQube'){
                 steps{
                     withSonarQubeEnv('sonar') {
@@ -28,7 +28,7 @@ pipeline{
                         }
                     }
                 }
-           }*/
+           }
         stage('Packaging avec Maven'){
             steps{
                 
@@ -48,7 +48,7 @@ pipeline{
                       nexusVersion: 'nexus3',
                       protocol: 'http',
                       repository: 'test',
-                      version: '3.0-SNPAPSHOT'  
+                      version: '4.0-SNPAPSHOT'  
                 }
             }
             stage('Deploiment Continue avec Ansible '){
