@@ -12,6 +12,7 @@ pipeline{
                     sh 'mvn clean install test'
                 }
             }
+            /*
             stage('Analyse du code avec SonarQube'){
                 steps{
                     withSonarQubeEnv('sonar') {
@@ -27,7 +28,7 @@ pipeline{
                         }
                     }
                 }
-           }
+           }*/
         stage('Packaging avec Maven'){
             steps{
                 
