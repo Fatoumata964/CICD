@@ -53,7 +53,7 @@ pipeline{
             stage('Deploiment Continue avec Ansible '){
             steps{
                 
-                   ansiblePlaybook credentialsId: 'c3cd65ca-1b8b-4ce1-9e4c-c3300fdd9479',
+                   ansiblePlaybook credentialsId: '851da8cd-7e36-45c0-b56d-c114b3d8830a',
                    installation: 'diourbelAnsible',
                    inventory: 'dev.inv',
                    playbook: 'SimpleDeploy.yaml'
