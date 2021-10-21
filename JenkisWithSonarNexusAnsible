@@ -14,7 +14,7 @@ pipeline{
             }
             stage('Analyse du code avec SonarQube'){
                 steps{
-                    withSonarQubeEnv('today') {
+                    withSonarQubeEnv('sonar') {
                         sh 'mvn sonar:sonar'
                     }
                     sleep(20)
@@ -39,11 +39,11 @@ pipeline{
             steps{
                 
                   nexusArtifactUploader artifacts: [
-                      [artifactId: 'TestCI', classifier: '', file: '/var/lib/jenkins/workspace/diourbel/target/TestCI-1.0-SNAPSHOT.jar', type: 'jar']
+                      [artifactId: 'TestCI', classifier: '', file: '/var/lib/jenkins/workspace/test1/target/TestCI-1.0-SNAPSHOT.jar', type: 'jar']
                   ], 
-                      credentialsId: 'cc3fad3d-c9c0-4b63-9c4e-803411b39494', 
+                      credentialsId: '7beb34e1-5d48-425b-bdac-7b22a1efa4a8', 
                       groupId: 'org.example',
-                      nexusUrl: 'mosef.westeurope.cloudapp.azure.com:8082', 
+                      nexusUrl: 'mosef2.westeurope.cloudapp.azure.com:8082', 
                       nexusVersion: 'nexus3',
                       protocol: 'http',
                       repository: 'test',
