@@ -1,0 +1,19 @@
+pipeline{
+    agent any
+    options {
+      timeout(300)
+    }
+    
+    stages{ 
+
+            stage('Deploiment Continue avec Ansible '){
+            steps{
+                
+                   ansiblePlaybook credentialsId: 'c3cd65ca-1b8b-4ce1-9e4c-c3300fdd9479',
+                   installation: 'diourbelAnsible',
+                   inventory: 'dev.inv',
+                   playbook: 'DeployWithInstall.yaml'
+                }
+            }
+     }
+}
